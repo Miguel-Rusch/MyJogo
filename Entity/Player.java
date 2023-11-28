@@ -3,6 +3,8 @@ package Entity;
 
 import src.GamePanel;
 import src.KeyHandler;
+import tile1.tileMa;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -34,6 +36,7 @@ public class Player extends Entity{
         x = 200;
         y = 10;
         speed = 5;
+        caida = 3;
        direction = "Left";
     }
     public void getPlayerimage(){
@@ -67,12 +70,10 @@ public class Player extends Entity{
     }else{
         mover = false;
     }
-        
 
        if(mover){
         switch (direction) {
             case "Left":
-                    System.out.println("aahh");
                     x -= speed;
                     
                 break;
@@ -89,7 +90,13 @@ public class Player extends Entity{
                     
                 break;
         }
-    }       
+    }
+        
+     ColisionChecker cL =new ColisionChecker(gp);
+        cL.checker(this, tileMa.mapColision);   
+        if(colisionFall == true){
+            y += caida; 
+        }
     }
 
 

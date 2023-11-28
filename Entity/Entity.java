@@ -8,7 +8,7 @@ import java.nio.Buffer;
 public class Entity {
  public int x, y;
  public int speed;
-
+public int caida;
  
 
 
