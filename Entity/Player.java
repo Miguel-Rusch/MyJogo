@@ -18,8 +18,8 @@ public class Player extends Entity{
     GamePanel gp;
     KeyHandler Kh;
     boolean mover = true;
-
-
+    boolean pressedUp;
+    int acelerar;
     
 
     public Player(GamePanel gp , KeyHandler Kh){
@@ -36,8 +36,10 @@ public class Player extends Entity{
         x = 200;
         y = 10;
         speed = 5;
-        caida = 3;
-       direction = "Left";
+        duracaoPulo = 80;
+        pular = 35;
+        caida = 7;
+        direction = "Left";
     }
     public void getPlayerimage(){
          System.out.println("b");
@@ -53,11 +55,12 @@ public class Player extends Entity{
 
     public void update(){
     if(Kh.downPressed == true ||Kh.upPressed == true ||Kh.rightPressed == true ||Kh.leftPressed){
-        if(Kh.leftPressed == true){
-            direction = "Left";
-           
-        }else if(Kh.upPressed == true){
+        if(Kh.upPressed == true){
             direction = "Up";
+            pressedUp = true;
+           
+        }else if(Kh.leftPressed == true){
+            direction = "Left";
 
          }else if(Kh.downPressed == true){
             direction = "Down";
@@ -68,7 +71,12 @@ public class Player extends Entity{
         }
         mover = true;
     }else{
+        if(pressedUp == false){
         mover = false;
+        }else{
+            mover = true;
+        }
+
     }
 
        if(mover){
@@ -78,7 +86,10 @@ public class Player extends Entity{
                     
                 break;
             case "Up":
-                    y -= speed;
+                if(Kh.upPressed == false && pressedUp == true){
+                    acelerar += duracaoPulo;
+                    pressedUp = false;
+                }
                     
                 break;
             case "Down":
@@ -96,6 +107,10 @@ public class Player extends Entity{
         cL.checker(this, tileMa.mapColision);   
         if(colisionFall == true){
             y += caida; 
+        }
+        if(acelerar > 0){
+        y -= pular ;
+        acelerar-=caida;
         }
     }
 

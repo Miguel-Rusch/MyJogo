@@ -8,13 +8,16 @@ public class ColisionChecker {
         this.gp = gp;
     }
     public void checker(Entity entity,boolean mapColision[][]){
-        int posX = (entity.x / gp.titleSize);
+        int posXLeft = (entity.x / gp.titleSize);
+        int posXRight = (entity.x / gp.titleSize) + 1;
         
-        int posY =  (entity.y / gp.titleSize);
-System.out.println(mapColision[posX][posY]  );
+        int posYHigh =  (entity.y / gp.titleSize);
+        
+System.out.println(mapColision[posXLeft][posYHigh]  );
+
         switch (entity.direction) {
             case "Down":
-                    if(mapColision[posX][posY] == true){
+                    if(mapColision[posXLeft][posYHigh] == true){
                         entity.colisionOn = true;
                         System.out.println("18 colision");
                     }
@@ -23,7 +26,7 @@ System.out.println(mapColision[posX][posY]  );
             default:
                 break;
         }
-        if(mapColision[posX][posY + 1] == true){
+        if(mapColision[posXLeft][posYHigh + 1] == true || mapColision[posXRight][posYHigh+ 1] == true){
             entity.colisionFall = false;
         }else{
             entity.colisionFall = true;
