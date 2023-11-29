@@ -54,19 +54,27 @@ public class Player extends Entity{
     }
 
     public void update(){
+        ColisionChecker cL =new ColisionChecker(gp);
+        cL.checker(this, tileMa.mapColision);
+
+
     if(Kh.downPressed == true ||Kh.upPressed == true ||Kh.rightPressed == true ||Kh.leftPressed){
-        if(Kh.upPressed == true){
+        if((Kh.upPressed == true && colisionFall == false) || pressedUp){
+
             direction = "Up";
+
             pressedUp = true;
+            
            
-        }else if(Kh.leftPressed == true){
+        }
+         if(Kh.leftPressed == true){
             direction = "Left";
 
          }else if(Kh.downPressed == true){
             direction = "Down";
             
         }
-        if(Kh.rightPressed == true){
+        else if(Kh.rightPressed == true){
             direction = "Right";
         }
         mover = true;
@@ -84,14 +92,7 @@ public class Player extends Entity{
             case "Left":
                     x -= speed;
                     
-                break;
-            case "Up":
-                if(Kh.upPressed == false && pressedUp == true){
-                    acelerar += duracaoPulo;
-                    pressedUp = false;
-                }
-                    
-                break;
+                break;          
             case "Down":
                     y += speed;
                     
@@ -101,10 +102,17 @@ public class Player extends Entity{
                     
                 break;
         }
+         
+           if(Kh.upPressed == false && pressedUp == true){
+                acelerar += duracaoPulo;
+                pressedUp = false;
+            }
+                    
+                
+
     }
         
-     ColisionChecker cL =new ColisionChecker(gp);
-        cL.checker(this, tileMa.mapColision);   
+        
         if(colisionFall == true){
             y += caida; 
         }

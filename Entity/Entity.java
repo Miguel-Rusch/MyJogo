@@ -17,6 +17,7 @@ public int pular;
 public Rectangle solidAerea;
 public boolean colisionOn = false;
 public boolean colisionFall = false;
+
 public boolean gameOver;
 
 public String direction ;

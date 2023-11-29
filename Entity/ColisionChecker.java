@@ -31,5 +31,6 @@ System.out.println(mapColision[posXLeft][posYHigh]  );
         }else{
             entity.colisionFall = true;
         }
+        
     }
 }
