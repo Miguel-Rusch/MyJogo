@@ -1,6 +1,7 @@
 package Entity;
 
 import src.GamePanel;
+import tile1.tileMa;
 
 public class ColisionChecker {
     GamePanel gp;
@@ -8,12 +9,13 @@ public class ColisionChecker {
         this.gp = gp;
     }
     public void checker(Entity entity,boolean mapColision[][]){
+        
         int posXLeft = (entity.x / gp.titleSize);
         int posXRight = (entity.x / gp.titleSize) + 1;
         
         int posYHigh =  (entity.y / gp.titleSize);
         
-System.out.println(mapColision[posXLeft][posYHigh]  );
+
 
         switch (entity.direction) {
             case "Down":

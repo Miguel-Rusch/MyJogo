@@ -27,7 +27,7 @@ public class tileMa{
      mapTileNUm = new int[gp.maxScreenCo1][gp.maxScreenRow1];   
      mapColision = new boolean[gp.maxScreenCo1][gp.maxScreenRow1];
      getTitleImages();
-     loadMap("/Mapa/1mapa.txt");
+     loadMap("/Mapa/mapa1/1mapa.txt");
     }
 
     public void getTitleImages(){
@@ -79,6 +79,7 @@ public class tileMa{
                 
                 
             }
+            
             br.close(); 
         } catch (Exception e) {
             

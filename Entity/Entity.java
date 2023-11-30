@@ -22,7 +22,7 @@ public boolean gameOver;
 
 public String direction ;
 
-public BufferedImage cachorrinhoL,cachorrinhoR;
+public BufferedImage cachorrinhoL,cachorrinhoR ,ossoB;
 
 
 

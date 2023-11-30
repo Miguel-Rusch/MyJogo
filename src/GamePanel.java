@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 import Entity.Player;
+import Entity.osso;
 import tile1.tileMa;
 
 public class GamePanel extends JPanel implements  Runnable{
@@ -38,10 +39,11 @@ public class GamePanel extends JPanel implements  Runnable{
     tileMa Tm = new tileMa(this); 
     KeyHandler Kh = new KeyHandler();
     Player player = new Player(this, Kh);
+    osso os = new osso(this);
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(ScreenWitdh,ScreenHeight));
-        this.setBackground(Color.WHITE);
+        this.setBackground(Color.CYAN);
         this.setDoubleBuffered(true);
         this.addKeyListener(Kh);
         this.setFocusable(true);
@@ -101,6 +103,7 @@ public class GamePanel extends JPanel implements  Runnable{
             
             Tm.draw(g2);
             player.draw(g2);
+            os.draw(g2);
            
         }
     
