@@ -55,7 +55,7 @@ public class Player extends Entity{
 
     public void update(){
         ColisionChecker cL =new ColisionChecker(gp);
-        cL.checker(this, tileMa.mapColision);
+        cL.checker(this);
 
 
     if(Kh.downPressed == true ||Kh.upPressed == true ||Kh.rightPressed == true ||Kh.leftPressed){

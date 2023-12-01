@@ -11,16 +11,20 @@ public class Entity {
 public int caida;
 public int duracaoPulo;
 public int pular;
+
+public int p;
+public int ossoX;
+public int ossoY;
  
 
 
 public Rectangle solidAerea;
 public boolean colisionOn = false;
-public boolean colisionFall = false;
+public boolean colisionFall;
 
 public boolean gameOver;
 
-public String direction ;
+public String direction  = "e";
 
 public BufferedImage cachorrinhoL,cachorrinhoR ,ossoB;
 
