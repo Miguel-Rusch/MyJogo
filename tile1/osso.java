@@ -1,4 +1,4 @@
-package Entity;
+package tile1;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -9,26 +9,32 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import Entity.Entity;
 import src.GamePanel;
-import tile1.tileMa;
 
-public class osso extends Entity{
+
+public class osso{
     GamePanel gp;
-    int [] posOsso;
+    static int [] posOsso;
+    BufferedImage  ossoB; 
+    public static int p,ossoY, ossoX;
+    public static String pontos;
+    static int pontuacao = 0;
 
     public osso(GamePanel gp){
         this.gp = gp;
-        tileMa tm = new tileMa(gp);
+        
         posOsso = new int[100];
      
         getOssoimage();
         loadOsso("/Mapa/mapa1/mapaOsso.txt");
         setDefaultValues();
     }
-    public void setDefaultValues(){
+    public static void setDefaultValues(){
          p =numRng();
-         direction = "e";
-
+         pontos = "" + pontuacao +"";
+         pontuacao++;
+       
     }
 
     public void getOssoimage(){
@@ -91,18 +97,18 @@ public class osso extends Entity{
             
         }
     }
-    public int numRng(){
+    public static int numRng(){
         Random rng = new Random();
-        return rng.nextInt(4);
+        return rng.nextInt(8);
+    }
+    
+    public static void calcularPos(){
+          int z = posOsso[p]/1000;
+         ossoX =128 * (posOsso[p] / 1000);
+         ossoY = 128 * (posOsso[p] - z *1000);
     }
     public void update(){
-        Entity ent = new Entity();
-        ColisionChecker ck = new ColisionChecker(gp);
-       ck.checker(ent);
-          if(ck.osso(this) == true){
-        setDefaultValues();
-        System.out.println("106 osso");
-       }
+      
         
       
     }
@@ -112,11 +118,9 @@ public class osso extends Entity{
        
        
     
-     
+    calcularPos();
         
-        int z = posOsso[p]/1000;
-         ossoX =gp.titleSize * (posOsso[p] / 1000);
-         ossoY = gp.titleSize * (posOsso[p] - z *1000);
+      
      
         
      

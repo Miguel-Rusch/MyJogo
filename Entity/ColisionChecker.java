@@ -1,26 +1,34 @@
 package Entity;
 
 import src.GamePanel;
+import tile1.osso;
 import tile1.tileMa;
 
 public class ColisionChecker {
     GamePanel gp;
+     int cont;
     public ColisionChecker(GamePanel gp){
         this.gp = gp;
     }
     public void checker(Entity entity){
-        tileMa tm = new tileMa(gp);
+       
         
         int posXLeft = (entity.x / gp.titleSize);
         int posXRight = (entity.x / gp.titleSize) + 1;
         
         int posYHigh =  (entity.y / gp.titleSize);
+       
+       osso.calcularPos();
+        if(entity.x >= osso.ossoX && osso.ossoX+128 >= entity.x && entity.y >= osso.ossoY && entity.y <= osso.ossoY+128){
+            
+            osso.setDefaultValues();    
+           
+        }
         
-
 
         switch (entity.direction) {
             case "Down":
-                    if(tm.mapColision[posXLeft][posYHigh] == true){
+                    if(tileMa.mapColision[posXLeft][posYHigh] == true){
                         entity.colisionOn = true;
                         System.out.println("18 colision");
                     }
@@ -29,7 +37,7 @@ public class ColisionChecker {
             default:
                 break;
         }
-        if(tm.mapColision[posXLeft][posYHigh + 1] == true || tm.mapColision[posXRight][posYHigh+ 1] == true){
+        if(tileMa.mapColision[posXLeft][posYHigh + 1] == true || tileMa.mapColision[posXRight][posYHigh+ 1] == true){
             entity.colisionFall = false;
              Entity ent = new Entity();
              ent.colisionFall = false;
@@ -44,19 +52,5 @@ public class ColisionChecker {
         }
         
     } 
-    public boolean osso(Entity entity){
-               tileMa tm = new tileMa(gp);
-        int posXLeft = (entity.x / gp.titleSize);
-        int posXRight = (entity.x / gp.titleSize) + 1;
-        
-        int posYHigh =  (entity.y / gp.titleSize);
-        Boolean retorn = false;
-        System.out.println(entity.x);
-
-        if(false){
-            retorn = true;
-        }
-        System.out.println(retorn);
-        return retorn;
-    }  
+    
 }

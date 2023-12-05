@@ -11,7 +11,7 @@ public class MyJogo {
         
         janela.add(gp);
         janela.pack();
-        janela.setResizable(true);
+        janela.setResizable(false);
         janela.setTitle("jOGO DA vELHA");
         janela.setLocationRelativeTo(null);
         janela.setVisible(true);

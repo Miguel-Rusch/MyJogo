@@ -3,7 +3,7 @@ package Entity;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
+
 
 public class Entity {
  public int x, y;
@@ -12,7 +12,7 @@ public int caida;
 public int duracaoPulo;
 public int pular;
 
-public int p;
+public static int p;
 public int ossoX;
 public int ossoY;
  

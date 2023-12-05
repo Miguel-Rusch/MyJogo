@@ -10,7 +10,8 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 import Entity.Player;
-import Entity.osso;
+import tile1.DisplayPonto;
+import tile1.osso;
 import tile1.tileMa;
 
 public class GamePanel extends JPanel implements  Runnable{
@@ -40,6 +41,7 @@ public class GamePanel extends JPanel implements  Runnable{
     KeyHandler Kh = new KeyHandler();
     Player player = new Player(this, Kh);
     osso os = new osso(this);
+    DisplayPonto Dp = new DisplayPonto(this);
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(ScreenWitdh,ScreenHeight));
@@ -93,7 +95,7 @@ public class GamePanel extends JPanel implements  Runnable{
 
         public void update(){
             player.update();
-            os.update();
+    
             
             
         }
@@ -105,6 +107,7 @@ public class GamePanel extends JPanel implements  Runnable{
             Tm.draw(g2);
             player.draw(g2);
             os.draw(g2);
+            Dp.draw(g2);
            
         }
     
