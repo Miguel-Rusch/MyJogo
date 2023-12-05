@@ -1,6 +1,8 @@
 package tile1;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -10,6 +12,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 import Entity.Entity;
+
 import src.GamePanel;
 
 
@@ -18,8 +21,11 @@ public class osso{
     static int [] posOsso;
     BufferedImage  ossoB; 
     public static int p,ossoY, ossoX;
+    static int titleSize = 128;   
+   
     public static String pontos;
     static int pontuacao = 0;
+    public static  Rectangle ossoRect;
 
     public osso(GamePanel gp){
         this.gp = gp;
@@ -106,6 +112,8 @@ public class osso{
           int z = posOsso[p]/1000;
          ossoX =128 * (posOsso[p] / 1000);
          ossoY = 128 * (posOsso[p] - z *1000);
+      
+          ossoRect = new Rectangle(ossoX-4,ossoY + titleSize/4,titleSize,titleSize/2);
     }
     public void update(){
       
@@ -120,13 +128,13 @@ public class osso{
     
     calcularPos();
         
-      
-     
+   
         
      
-       
-       
+       g2.setColor(Color.red);
+       g2.fill(ossoRect);
         g2.drawImage(image, ossoX, ossoY,gp.titleSize,gp.titleSize, null);
+        
     }
     
 }

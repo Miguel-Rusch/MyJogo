@@ -4,13 +4,18 @@ package Entity;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
+import javafx.geometry.Rectangle2D;
+
 
 public class Entity {
- public int x, y;
+ public static int x, y;
  public int speed;
 public int caida;
 public int duracaoPulo;
 public int pular;
+static int titleSize = 128;
+public static Rectangle  playerRect ;
+
 
 public static int p;
 public int ossoX;

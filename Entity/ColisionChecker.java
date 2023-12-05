@@ -19,12 +19,14 @@ public class ColisionChecker {
         int posYHigh =  (entity.y / gp.titleSize);
        
        osso.calcularPos();
-        if(entity.x >= osso.ossoX && osso.ossoX+128 >= entity.x && entity.y >= osso.ossoY && entity.y <= osso.ossoY+128){
-            
-            osso.setDefaultValues();    
-           
-        }
-        
+      
+       if(Player.playerRect.getX() < osso.ossoRect.getX() + osso.ossoRect.getWidth() &&
+        Player.playerRect.getX() + Player.playerRect.getWidth()  > osso.ossoRect.getX() &&
+        Player.playerRect.getY() < osso.ossoRect.getY() + osso.ossoRect.getHeight() &&
+        Player.playerRect.getY() + Player.playerRect.getHeight() > osso.ossoRect.getY()){
+         osso.setDefaultValues();
+       }
+ 
 
         switch (entity.direction) {
             case "Down":
@@ -50,6 +52,8 @@ public class ColisionChecker {
              Entity ent = new Entity();
              ent.colisionFall = true;
         }
+        
+        
         
     } 
     

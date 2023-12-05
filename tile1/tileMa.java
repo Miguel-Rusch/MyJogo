@@ -3,23 +3,27 @@ package tile1;
 
 
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
+import java.awt.Rectangle;
 import javax.imageio.ImageIO;
 
 import Entity.ColisionChecker;
 import Entity.Entity;
+
 import src.GamePanel;
 
 public class tileMa{
     GamePanel gp;
     tile [] tile;
-    int mapTileNUm [] [];
+    public static int mapTileNUm [] [];
     public static boolean mapColision [][]; 
+    static int titleSize = 128; 
+  
 
     public tileMa(GamePanel gp){
     this.gp = gp;
@@ -35,11 +39,13 @@ public class tileMa{
             tile[0] = new tile();
             tile[0].image = ImageIO.read(getClass().getResourceAsStream("/Imagens/cenario/ceu.png"));
             tile[0].colision = false;
+                tile[0].tileRect = new Rectangle(100,100 + titleSize/4,0,0);
 
             tile[1] = new tile();
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/Imagens/cenario/plataforma.png"));
             tile[1].colision = true;
-
+              tile[1].tileRect = new Rectangle(500,500 + titleSize/4,titleSize,titleSize/2);
+               
             tile[2] = new tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("/Imagens/cenario/marrom.png"));
             tile[2].colision = true;
@@ -87,7 +93,7 @@ public class tileMa{
     }
     public void draw (Graphics2D g2){
        
-        
+        tile t = new tile();
 
       
         
@@ -98,6 +104,7 @@ public class tileMa{
         
         while (co1 < gp.maxScreenCo1 && row < gp.maxScreenRow1) {
             int titleNum = mapTileNUm[co1][row];
+          
             g2.drawImage(tile[titleNum].image, x, y,gp.titleSize,gp.titleSize,null);
             co1++;
             x += gp.titleSize;
@@ -109,6 +116,10 @@ public class tileMa{
                 y += gp.titleSize;
             }
         }
+    
+        g2.setColor(Color.RED);
+        g2.fill(tile[0].tileRect);
+        
     }
 
 

@@ -17,8 +17,8 @@ import tile1.tileMa;
 public class GamePanel extends JPanel implements  Runnable{
      //Configurações da Tela
     
-     final int originalTitleSize = 16;
-     final int escala = 8;
+     final int originalTitleSize = 32;
+     final int escala = 4;
      
      public int titleSize = originalTitleSize * escala;  //128
      public final int maxScreenCo1 = 18;

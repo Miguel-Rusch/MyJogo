@@ -3,12 +3,13 @@ package Entity;
 
 import src.GamePanel;
 import src.KeyHandler;
-
+import tile1.osso;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -20,19 +21,21 @@ public class Player extends Entity{
     boolean mover = true;
     boolean pressedUp;
     int acelerar;
+    static int titleSize = 128;  
     
 
     public Player(GamePanel gp , KeyHandler Kh){
         this.gp = gp;
         this.Kh = Kh;
-
+          
         solidAerea = new Rectangle(0,0,48,48);
-        
+      
 
         setDefaultValues();
         getPlayerimage();
     }
     public void setDefaultValues(){
+        
         x = 200;
         y = 10;
         speed = 5;
@@ -40,6 +43,8 @@ public class Player extends Entity{
         pular = 35;
         caida = 7;
         direction = "Left";
+       
+     
     }
     public void getPlayerimage(){
          System.out.println("b");
@@ -54,6 +59,7 @@ public class Player extends Entity{
     }
 
     public void update(){
+        playerRect = new Rectangle(x+ titleSize/4,y + titleSize/2,titleSize/2,titleSize/2);
         ColisionChecker cL =new ColisionChecker(gp);
         cL.checker(this);
 
@@ -120,6 +126,7 @@ public class Player extends Entity{
         y -= pular ;
         acelerar-=caida;
         }
+      
     }
 
 
@@ -138,10 +145,13 @@ public class Player extends Entity{
                 image = cachorrinhoR;
                 break;
         }
-       
+        
        // g2.fillRect(x, y, gp.titleSize, gp.titleSize);
         g2.drawImage(image, x, y,gp.titleSize,gp.titleSize, null);
-       
+        g2.setColor(Color.red);
+       g2.fill(playerRect);
+      
+      
     }
 }
 
