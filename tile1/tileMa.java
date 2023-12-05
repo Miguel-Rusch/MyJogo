@@ -22,7 +22,8 @@ public class tileMa{
     tile [] tile;
     public static int mapTileNUm [] [];
     public static boolean mapColision [][]; 
-    static int titleSize = 128; 
+    static int titleSize = 128;
+
   
 
     public tileMa(GamePanel gp){
@@ -32,6 +33,7 @@ public class tileMa{
      mapColision = new boolean[gp.maxScreenCo1][gp.maxScreenRow1];
      getTitleImages();
      loadMap("/Mapa/mapa1/1mapa.txt");
+     
     }
 
     public void getTitleImages(){
@@ -39,12 +41,12 @@ public class tileMa{
             tile[0] = new tile();
             tile[0].image = ImageIO.read(getClass().getResourceAsStream("/Imagens/cenario/ceu.png"));
             tile[0].colision = false;
-                tile[0].tileRect = new Rectangle(100,100 + titleSize/4,0,0);
+            //Bota no
 
             tile[1] = new tile();
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/Imagens/cenario/plataforma.png"));
             tile[1].colision = true;
-              tile[1].tileRect = new Rectangle(500,500 + titleSize/4,titleSize,titleSize/2);
+           
                
             tile[2] = new tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("/Imagens/cenario/marrom.png"));
@@ -93,8 +95,8 @@ public class tileMa{
     }
     public void draw (Graphics2D g2){
        
-        tile t = new tile();
-
+      
+       
       
         
         int co1 = 0;
@@ -118,7 +120,7 @@ public class tileMa{
         }
     
         g2.setColor(Color.RED);
-        g2.fill(tile[0].tileRect);
+        g2.fill(tile1.tile.tileRect[1]);
         
     }
 

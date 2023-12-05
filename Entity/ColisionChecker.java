@@ -2,6 +2,7 @@ package Entity;
 
 import src.GamePanel;
 import tile1.osso;
+import tile1.tile;
 import tile1.tileMa;
 
 public class ColisionChecker {
@@ -11,7 +12,7 @@ public class ColisionChecker {
         this.gp = gp;
     }
     public void checker(Entity entity){
-       
+      
         
         int posXLeft = (entity.x / gp.titleSize);
         int posXRight = (entity.x / gp.titleSize) + 1;

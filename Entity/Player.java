@@ -4,6 +4,8 @@ package Entity;
 import src.GamePanel;
 import src.KeyHandler;
 import tile1.osso;
+import tile1.tile;
+import tile1.tileMa;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -60,6 +62,8 @@ public class Player extends Entity{
 
     public void update(){
         playerRect = new Rectangle(x+ titleSize/4,y + titleSize/2,titleSize/2,titleSize/2);
+       tile t = new tile();
+       System.out.println(t.tileRect.getWidth());
         ColisionChecker cL =new ColisionChecker(gp);
         cL.checker(this);
 
