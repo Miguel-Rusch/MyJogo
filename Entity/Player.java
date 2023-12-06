@@ -62,8 +62,7 @@ public class Player extends Entity{
 
     public void update(){
         playerRect = new Rectangle(x+ titleSize/4,y + titleSize/2,titleSize/2,titleSize/2);
-       tile t = new tile();
-       System.out.println(t.tileRect.getWidth());
+      
         ColisionChecker cL =new ColisionChecker(gp);
         cL.checker(this);
 
@@ -153,8 +152,9 @@ public class Player extends Entity{
        // g2.fillRect(x, y, gp.titleSize, gp.titleSize);
         g2.drawImage(image, x, y,gp.titleSize,gp.titleSize, null);
         g2.setColor(Color.red);
-       g2.fill(playerRect);
-      
+       
+    //g2.fill(playerRect);
+    // g2.fill(tile.tileRect[3]);
       
     }
 }

@@ -7,11 +7,17 @@ import java.awt.Rectangle;
 public class tile {
     public BufferedImage image;
     public boolean colision = false;
-    static int titleSize = 128; 
+    public static int titleSize = 128; 
     public static  Rectangle[] tileRect= new Rectangle[4];
-    public static Rectangle[] rect(){
-    tileRect[0] = new Rectangle(500,500 + titleSize/4,0,0);
-     tileRect[1] = new Rectangle(500,500 + titleSize/4,titleSize,titleSize/2);
+    public static Rectangle[] rect(double x, double y){
+   
+    int j = (int) x;
+    int i = (int) y;
+    
+    tileRect[0] = new Rectangle(2000,20000,0,0);
+    tileRect[1] =  new Rectangle(j,i +36 ,titleSize, titleSize/4);
+    tileRect[2] =  new Rectangle(j,i,titleSize, titleSize/4);//Não configurado
+    tileRect[3] = new Rectangle(j,i - 12,titleSize, -18 +titleSize - titleSize/4);
     return tileRect;
     }
   

@@ -118,9 +118,9 @@ public class tileMa{
                 y += gp.titleSize;
             }
         }
-    
-        g2.setColor(Color.RED);
-        g2.fill(tile1.tile.tileRect[1]);
+        
+       
+        
         
     }
 
