@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import Entity.Player;
 import tile1.Chocolate;
 import tile1.DisplayPonto;
-import tile1.chocolate;
+import tile1.Chocolate;
 import tile1.osso;
 import tile1.tileMa;
 
