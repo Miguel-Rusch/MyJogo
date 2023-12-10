@@ -1,6 +1,7 @@
 package Entity;
 
 import src.GamePanel;
+import tile1.Chocolate;
 import tile1.osso;
 import tile1.tile;
 import tile1.tileMa;
@@ -42,33 +43,17 @@ public class ColisionChecker {
        
         entity.colisionFall = true;
        }
-       
-
-        // switch (entity.direction) {aaaaaa
-        //     case "Down":
-        //             if(tileMa.mapColision[posXLeft][posYHigh] == true){
-        //                 entity.colisionOn = true;   
-        //                 System.out.println("18 colision");
-        //             }
-        //         break;
-        
-        //     default:
-        //         break;
-        // }
-        // if(tileMa.mapColision[posXLeft][posYHigh + 1] == true || tileMa.mapColision[posXRight][posYHigh+ 1] == true){
-        //     entity.colisionFall = false;
-        //      Entity ent = new Entity();
-        //      ent.colisionFall = false;
-
-            
+       for(int i = 1; i < Chocolate.pointer;i++){
+       if(Player.playerRect.getX() < Chocolate.chocoRect[i].getX() + Chocolate.chocoRect[i].getWidth() &&
+        Player.playerRect.getX() + Player.playerRect.getWidth()  > Chocolate.chocoRect[i].getX() &&
+        Player.playerRect.getY() < Chocolate.chocoRect[i].getY() + Chocolate.chocoRect[i].getHeight() &&
+        Player.playerRect.getY() + Player.playerRect.getHeight() > Chocolate.chocoRect[i].getY()){
          
-        // }else{
-        //     entity.colisionFall = true;
-        //      entity.p = 2;
-        //      Entity ent = new Entity();
-        //      ent.colisionFall = true;
-        // }
+         entity.colisionDeath = true;
+            System.out.println("Você morrew");
+       }
         
+       }
         
         
     } 

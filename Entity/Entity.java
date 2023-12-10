@@ -26,6 +26,7 @@ public int ossoY;
 public Rectangle solidAerea;
 public boolean colisionOn = false;
 public boolean colisionFall;
+public static boolean colisionDeath = false;
 
 public boolean gameOver;
 

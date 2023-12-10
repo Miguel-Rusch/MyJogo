@@ -17,7 +17,7 @@ import tile1.Chocolate;
 import tile1.osso;
 import tile1.tileMa;
 
-public class GamePanel extends JPanel implements  Runnable{
+public class Ressuct extends JPanel implements  Runnable{
      //Configurações da Tela
     
      final int originalTitleSize = 32;
@@ -31,23 +31,14 @@ public class GamePanel extends JPanel implements  Runnable{
 
      Thread gameThread;
 
-     //position of the square temporario
-    
-    int playerX =100;
-    int playerY = 100;
-    int playerSpeed = 4;
+   
 
     //FPS
     int FPS = 60;
-
-    tileMa Tm = new tileMa(this); 
     KeyHandler Kh = new KeyHandler();
-    Player player = new Player(this, Kh);
-    osso os = new osso(this);
-    DisplayPonto Dp = new DisplayPonto(this);
-    Chocolate Cho = new Chocolate(this);
+  
 
-    public GamePanel(){
+    public Ressuct(){
         this.setPreferredSize(new Dimension(ScreenWitdh,ScreenHeight));
         this.setBackground(Color.CYAN);
         this.setDoubleBuffered(true);
@@ -98,24 +89,17 @@ public class GamePanel extends JPanel implements  Runnable{
     }
 
         public void update(){
-        
-            player.update();
-            Cho.update();
+          
            
+            
             
         }
         public void paintComponent(Graphics g){
             super.paintComponent(g);
             
             Graphics2D g2 = (Graphics2D)g;
-            if(Entity.colisionDeath == false){
-            Tm.draw(g2);
-            player.draw(g2);
-            os.draw(g2);
-            Cho.draw(g2);
-            Dp.draw(g2);
-          
-            }
+            
+            g2.draw(Player.playerRect);
            
         }
     

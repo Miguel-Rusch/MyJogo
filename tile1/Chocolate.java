@@ -27,11 +27,12 @@ public class Chocolate{
     static int titleSize = 128;   
     public static int choX,choY;
     public static int[]posX = new int[60],posY = new int[60], posOri = new int[60];
-    public int pointer;
+    public static int pointer;
     public boolean Ho;
     public  int borderHo =2304;
     public int borderVe = 800;
     public int limiteLado = 2;
+    public static  Rectangle[] chocoRect = new Rectangle[60];
     //Variaveis que pode ser mudada caso dificuldade seja aumentada
     public static int velocidade = 5;
     
@@ -68,6 +69,7 @@ public class Chocolate{
         posY[numChoco] = 20 + pointer*titleSize/2;
         posX[numChoco] = 0;
         posOri[numChoco] = 1;
+    
         }else{
         
         posY[numChoco] = 0;
@@ -127,9 +129,13 @@ public class Chocolate{
     for(int cont = 1; cont < pointer; cont++){
         if(posOri[cont] == 1){
         image = chocoVe;
+         chocoRect[cont] = new Rectangle(posX[cont] + 20 ,posY[cont] + titleSize/4 ,-12+titleSize - titleSize/4,titleSize/2  );
         }else{
         image = chocoHo;
+        chocoRect[cont] = new Rectangle(posX[cont]  + titleSize/4 + 5,posY[cont] + 10,titleSize/2,-12+titleSize  - titleSize/4);
         }
+ 
+      
     g2.drawImage(image, posX[cont], posY[cont],titleSize,titleSize,null);
     }
         
