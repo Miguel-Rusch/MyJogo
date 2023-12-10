@@ -22,7 +22,7 @@ public class Player extends Entity{
     KeyHandler Kh;
     boolean mover = true;
     boolean pressedUp;
-    int acelerar;
+   public static int acelerar;
     static int titleSize = 128;  
     
 
@@ -153,7 +153,7 @@ public class Player extends Entity{
         g2.drawImage(image, x, y,gp.titleSize,gp.titleSize, null);
         g2.setColor(Color.red);
        
-    //g2.fill(playerRect);
+
     // g2.fill(tile.tileRect[3]);
       
     }

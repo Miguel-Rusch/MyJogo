@@ -134,6 +134,7 @@ public class osso{
     //    g2.setColor(Color.red);
     //    g2.fill(ossoRect);
         g2.drawImage(image, ossoX, ossoY,gp.titleSize,gp.titleSize, null);
+        g2.setColor(Color.red);
         
     }
     

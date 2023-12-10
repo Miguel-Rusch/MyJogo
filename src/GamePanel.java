@@ -46,6 +46,7 @@ public class GamePanel extends JPanel implements  Runnable{
     osso os = new osso(this);
     DisplayPonto Dp = new DisplayPonto(this);
     Chocolate Cho = new Chocolate(this);
+    Ressuct rs = new Ressuct();
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(ScreenWitdh,ScreenHeight));
@@ -98,24 +99,35 @@ public class GamePanel extends JPanel implements  Runnable{
     }
 
         public void update(){
-        
+        if(Entity.colisionDeath == true){
             player.update();
             Cho.update();
-           
+        }else{
+            
+            rs.update();
+        }
+        
             
         }
         public void paintComponent(Graphics g){
             super.paintComponent(g);
             
             Graphics2D g2 = (Graphics2D)g;
-            if(Entity.colisionDeath == false){
+            if(Entity.colisionDeath == true){
             Tm.draw(g2);
             player.draw(g2);
             os.draw(g2);
             Cho.draw(g2);
             Dp.draw(g2);
-          
+            
+            }else{
+                
+                this.setBackground(Color.LIGHT_GRAY);
+                rs.paintComponent(g2);
             }
+
+          
+            
            
         }
     

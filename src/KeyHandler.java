@@ -5,14 +5,17 @@
  */
 package src;
 
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  *
  * @author Miguel
  */
-public class KeyHandler implements  KeyListener{
+public class KeyHandler  implements KeyListener {
     public boolean  upPressed, downPressed, leftPressed,rightPressed,changeSprite, Mpressed;
     
     @Override
@@ -44,6 +47,7 @@ public class KeyHandler implements  KeyListener{
             Mpressed = true;
        }
        
+       
     }
 
     @Override
@@ -70,5 +74,7 @@ public class KeyHandler implements  KeyListener{
             Mpressed = false;
        }
     }
+    
+    
     
 }

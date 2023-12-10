@@ -35,7 +35,7 @@ public class ColisionChecker {
 
        tile.rect(posXLeft * gp.titleSize,(posYHigh + 1 )*gp.titleSize);
       
-          if(Player.playerRect.getY() >= tile.tileRect[tileNUm].getY() || Player.playerRect.getY() >= tile.tileRect[tileNumR].getY()){
+          if(Player.playerRect.getY()>= tile.tileRect[tileNUm].getY() || Player.playerRect.getY()>= tile.tileRect[tileNumR].getY()  ){
         entity.colisionFall = false;
        
        }

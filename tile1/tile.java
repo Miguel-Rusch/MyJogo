@@ -15,7 +15,7 @@ public class tile {
     int i = (int) y;
     
     tileRect[0] = new Rectangle(2000,20000,0,0);
-    tileRect[1] =  new Rectangle(j,i +36 ,titleSize, titleSize/4);
+    tileRect[1] =  new Rectangle(j,i +36 ,titleSize, 1);
     tileRect[2] =  new Rectangle(j,i,titleSize, titleSize/4);//Não configurado
     tileRect[3] = new Rectangle(j,i - 12,titleSize, -18 +titleSize - titleSize/4);
     return tileRect;

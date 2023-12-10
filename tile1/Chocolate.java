@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 
 
 import Entity.Entity;
-
+import Entity.Player;
 import src.GamePanel;
 
 
@@ -137,6 +137,8 @@ public class Chocolate{
  
       
     g2.drawImage(image, posX[cont], posY[cont],titleSize,titleSize,null);
+  
+   
     }
         
     }

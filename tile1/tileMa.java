@@ -105,8 +105,9 @@ public class tileMa{
         int y = 0;
         
         while (co1 < gp.maxScreenCo1 && row < gp.maxScreenRow1) {
+       
             int titleNum = mapTileNUm[co1][row];
-          
+           
             g2.drawImage(tile[titleNum].image, x, y,gp.titleSize,gp.titleSize,null);
             co1++;
             x += gp.titleSize;
