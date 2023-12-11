@@ -99,7 +99,7 @@ public class GamePanel extends JPanel implements  Runnable{
     }
 
         public void update(){
-        if(Entity.colisionDeath == true){
+        if(Entity.colisionDeath == false){
             player.update();
             Cho.update();
         }else{
@@ -113,7 +113,7 @@ public class GamePanel extends JPanel implements  Runnable{
             super.paintComponent(g);
             
             Graphics2D g2 = (Graphics2D)g;
-            if(Entity.colisionDeath == true){
+            if(Entity.colisionDeath == false){
             Tm.draw(g2);
             player.draw(g2);
             os.draw(g2);

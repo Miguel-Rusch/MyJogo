@@ -102,7 +102,7 @@ public class Chocolate{
  
   
     public void update(){
-    int i = Integer.parseInt(osso.pontos);
+    int i = osso.pontuacao;
     prevChoco = numChoco;    
     numChoco = i/2;
     

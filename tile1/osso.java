@@ -24,7 +24,7 @@ public class osso{
     static int titleSize = 128;   
    
     public static String pontos;
-    static int pontuacao = 0;
+    public static int pontuacao = 0;
     public static  Rectangle ossoRect;
 
     public osso(GamePanel gp){
